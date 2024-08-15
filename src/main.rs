@@ -5,36 +5,36 @@ struct Pit {
     x: i8,
     y: i8,
 }
+
 fn main() {
     println!("Enter your move: (WASD), to fire arrows: (IJKL)");
     let mut arrows: u8 = 2;
-    let mut i_quit: bool = false;
     let mut points = 0;
     let mut px: i8 = 0;// player's initial position
     let mut py: i8 = 0;
     let mut wy = rand::thread_rng().gen_range(-10..=10); // the wumpus.
     let mut wx = rand::thread_rng().gen_range(-10..=10);
-    if i_quit == true {
-        println!("something to add later.");
-    }
-    //println!("{} {}", wx, wy);
 
     let mut pit1 = Pit {
         x: rand::thread_rng().gen_range(-10..=10),
         y: rand::thread_rng().gen_range(-10..=10),
     };
+
     let mut pit2 = Pit {
         x: rand::thread_rng().gen_range(-10..=10),
         y: rand::thread_rng().gen_range(-10..=10),
     };
+
     let mut pit3 = Pit {
         x: rand::thread_rng().gen_range(-10..=10),
         y: rand::thread_rng().gen_range(-10..=10),
     };
+
     let mut pit4 = Pit {
         x: rand::thread_rng().gen_range(-10..=10),
         y: rand::thread_rng().gen_range(-10..=10),
     };
+
     for pit in [&mut pit1, &mut pit2, &mut pit3, &mut pit4].iter_mut() {
         while pit.x == px && pit.y == py {
             pit.x = rand::thread_rng().gen_range(-10..=10);
@@ -50,8 +50,8 @@ fn main() {
             break;
         }
     }   
-
-    loop {
+    let mut i_quit: bool = false;
+    while !! i_quit {
         i_quit = dangers(&mut wx, &mut wy, py, px, [&pit1, &pit2, &pit3, &pit4]);
         if i_quit == true {
             break; 
