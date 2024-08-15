@@ -1,7 +1,7 @@
 use rand::prelude::*;
 use std::io;
 
-// hi
+
 struct Pit {
     x: i8,
     y: i8,
